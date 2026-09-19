@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Real-time Weather Dashboard using JavaScript Fetch API and RESTful APIs">
+    <meta name="author" content="Weather Dashboard">
+
+    <title>Weather Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <p class="subtitle">LIVE WEATHER</p>
+                <h1>Weather Dashboard</h1>
+                <p class="description">
+                    Search for any city to view current weather conditions.
+                </p>
+            </div>
+
+            <div class="weather-icon" id="weatherIcon">
+                ☀️
+            </div>
+        </header>
+
+        <!-- Search -->
+        <section class="search-section">
+
+            <form id="searchForm" class="search-form">
+
+                <label for="cityInput" class="sr-only">
+                    Enter city name
+                </label>
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Enter city name..."
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit" id="searchButton">
+                    Search
+                </button>
+
+            </form>
+
+            <p class="search-hint">
+                Example: London, Mumbai, Tokyo, New York
+            </p>
+
+        </section>
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Fetching latest weather...</p>
+        </div>
+
+        <!-- Error -->
+        <div id="errorMessage" class="error hidden">
+            <span>⚠️</span>
+            <p id="errorText"></p>
+        </div>
+
+        <!-- Weather Dashboard -->
+        <section id="weatherDashboard" class="dashboard hidden">
+
+            <!-- Location -->
+            <div class="location-card">
+
+                <div>
+                    <p class="location-label">CURRENT LOCATION</p>
+
+                    <h2 id="cityName">--</h2>
+
+                    <p id="locationDetails">
+                        --
+                    </p>
+                </div>
+
+                <div class="date-info">
+                    <p id="currentDate">--</p>
+                    <p id="currentTime">--</p>
+                </div>
+
+            </div>
+
+            <!-- Main Weather -->
+            <div class="main-weather">
+
+                <div class="temperature-section">
+
+                    <div id="mainWeatherIcon" class="large-icon">
+                        ☀️
+                    </div>
+
+                    <div>
+                        <div class="temperature">
+                            <span id="temperature">--</span>
+                            <span>°C</span>
+                        </div>
+
+                        <p id="weatherDescription">
+                            --
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Weather Metrics -->
+            <div class="metrics-grid">
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">
+                        🌡️
+                    </div>
+
+                    <div>
+                        <p class="metric-label">
+                            Temperature
+                        </p>
+
+                        <h3>
+                            <span id="temperatureMetric">--</span> °C
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">
+                        💧
+                    </div>
+
+                    <div>
+                        <p class="metric-label">
+                            Humidity
+                        </p>
+
+                        <h3>
+                            <span id="humidity">--</span> %
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">
+                        💨
+                    </div>
+
+                    <div>
+                        <p class="metric-label">
+                            Wind Speed
+                        </p>
+
+                        <h3>
+                            <span id="windSpeed">--</span> km/h
+                        </h3>
+                    </div>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <div class="metric-icon">
+                        🌧️
+                    </div>
+
+                    <div>
+                        <p class="metric-label">
+                            Precipitation
+                        </p>
+
+                        <h3>
+                            <span id="precipitation">--</span> mm
+                        </h3>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- Additional Information -->
+            <div class="details-card">
+
+                <h3>Weather Details</h3>
+
+                <div class="details-grid">
+
+                    <div>
+                        <span>Feels Like</span>
+                        <strong id="feelsLike">-- °C</strong>
+                    </div>
+
+                    <div>
+                        <span>Wind Direction</span>
+                        <strong id="windDirection">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Weather Code</span>
+                        <strong id="weatherCode">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Data Updated</span>
+                        <strong id="updatedTime">--</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Welcome -->
+        <section id="welcomeMessage" class="welcome">
+
+            <div class="welcome-icon">
+                🌤️
+            </div>
+
+            <h2>Search for a city</h2>
+
+            <p>
+                Enter a city name above to get real-time weather information.
+            </p>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                Weather Dashboard • Built with HTML, CSS & JavaScript
+            </p>
+
+            <p>
+                Data provided by Open-Meteo
+            </p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
